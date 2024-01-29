@@ -2,6 +2,10 @@
     <span [class.line-through]="todo?.status===statusEnum.Complete">{{ todo?.name }}</span>
 
     <div class="todo-actions">
+        <button class="edit-action" *ngIf="todo?.status===statusEnum.InProgress" mat-mini-fab color="primary" aria-label="Edit"
+            (click)="todoEdited.emit(todo)">
+            <mat-icon>edit</mat-icon>
+        </button>
         <button *ngIf="todo?.status===statusEnum.InProgress" mat-mini-fab color="primary" aria-label="Complete" (click)="todoCompleted.emit(todo)">
             <mat-icon>done</mat-icon>
         </button>

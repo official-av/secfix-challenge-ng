@@ -1,12 +1,6 @@
 <div class="container">
-  <!-- TODO: form presentation component -->
-  <div class="todo-list-form">
-    <mat-form-field>
-      <mat-label>Todo List Item</mat-label>
-      <input matInput placeholder="E.g. Send Email" [formControl]="newTodo">
-    </mat-form-field>
-    <button mat-raised-button color="primary" [disabled]="newTodo.invalid" (click)="addNewTodo()">Add Todo</button>
-  </div>
+  <!-- form presentation component -->
+  <app-todo-form [mode]="isEditMode" (todoNameChanged)="addOrUpdateTodo($event)" #todoForm></app-todo-form>
 
   <!-- TODO: list presentation component -->
   <mat-tab-group>
@@ -34,5 +28,6 @@
 
 <!-- separate todo-item presentation component -->
 <ng-template #todoItem let-todo="todo">
-  <app-todo-item [todo]="todo" (todoCompleted)="changeTodoStatus($event)" (todoRemoved)="removeTodo($event)"></app-todo-item>
+  <app-todo-item [todo]="todo" (todoEdited)="startTodoEdit($event)" (todoCompleted)="changeTodoStatus($event)"
+    (todoRemoved)="removeTodo($event)"></app-todo-item>
 </ng-template>

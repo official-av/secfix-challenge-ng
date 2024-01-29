@@ -3,7 +3,7 @@ import {
   Component,
   EventEmitter,
   Input,
-  Output
+  Output,
 } from "@angular/core";
 import { TodoStatus } from "src/app/modules/models/enums/todo-status.enum";
 import { Todo } from "src/app/modules/models/interfaces/todo.interface";
@@ -18,5 +18,6 @@ export class TodoItemComponent {
   @Input() todo: Todo | undefined;
   @Output() todoRemoved = new EventEmitter();
   @Output() todoCompleted = new EventEmitter();
+  @Output() todoEdited = new EventEmitter();
   readonly statusEnum = TodoStatus;
 }

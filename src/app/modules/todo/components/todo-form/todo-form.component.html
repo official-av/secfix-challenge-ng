@@ -1,0 +1,9 @@
+<div class="todo-form">
+    <mat-form-field>
+        <mat-label>Todo List Item</mat-label>
+        <input matInput placeholder="E.g. Send Email" [formControl]="todoControl" (keyup.enter)="changeTodo()">
+    </mat-form-field>
+    <button class="todo-change-button" mat-raised-button color="primary" [disabled]="todoControl.invalid"
+        (click)="changeTodo()">{{mode==='add'?'Add':'Update'}}
+        Todo</button>
+</div>
