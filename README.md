@@ -60,7 +60,7 @@ Please use the following libraries. Some are already installed:
 
 - cleanup + code walkthrough - DONE
 - add filter + listing - DONE
-- add actions + reducers
+- add actions + reducers - DONE
 - add facade for interacting with store
 - use facade in ui (for triggering store)
 - Split todo into container+presentation components
@@ -72,3 +72,4 @@ Please use the following libraries. Some are already installed:
 - bonus task
 
 ## Decisions - Reasons
+- added devtools - for logs and visualising/monitoring state changes, debugging 

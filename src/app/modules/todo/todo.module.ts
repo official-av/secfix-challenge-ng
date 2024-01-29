@@ -11,12 +11,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditTodoDialogComponent } from './components/edit-todo-dialog/edit-todo-dialog.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
+import { TodoItemComponent } from './components/todo-item/todo-item.component';
 
 @NgModule({
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   declarations: [
     TodoComponent,
-    EditTodoDialogComponent
+    EditTodoDialogComponent,
+    TodoItemComponent
   ],
   imports: [
     CommonModule,

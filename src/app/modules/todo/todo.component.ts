@@ -25,7 +25,6 @@ export class TodoComponent implements OnInit {
   newTodo = new FormControl("", [Validators.required]);
 
   allTodos$: Observable<Todo[]> = this.store.pipe(select(getAllTodos));
-  // TODO: add inProgressTodos, completedTodos
   inProgressTodos$ = this.allTodos$.pipe(
     map((todos) => todos.filter((t) => t.status === TodoStatus.InProgress))
   );

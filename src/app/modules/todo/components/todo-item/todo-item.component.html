@@ -1,0 +1,13 @@
+<div class="todo-item">
+    <span [class.line-through]="todo?.status===statusEnum.Complete">{{ todo?.name }}</span>
+
+    <div class="todo-actions">
+        <button mat-mini-fab color="primary" aria-label="Complete" (click)="todoCompleted.emit(todo)">
+            <mat-icon>done</mat-icon>
+        </button>
+
+        <button mat-mini-fab color="warn" aria-label="Delete" (click)="todoRemoved.emit(todo)">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </div>
+</div>
