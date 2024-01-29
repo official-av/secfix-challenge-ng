@@ -68,10 +68,26 @@ Please use the following libraries. Some are already installed:
 - add components - DONE
 - change name - DONE
 - add/fix unit tests - DONE
-- add optimisations
+- add optimisations - DONE
 - bonus task
 
 ## Decisions - Reasons
+
 - added devtools - for logs and visualising/monitoring state changes, debugging
 - used facade - SRP, easy to test maintain and scale
 - edit directly on UI not in dialog, A/B testing - less clicks, good ui
+- used changeDetection OnPush - lesser change detection cycles for performant and minimal renders
+- used container + presentational components pattern - easy testing and maintenance with SRP, easy to scale, (DRY tradeoff+KISS tradeoff for scalability and boilerplate code)
+
+## FUTURE - Good to haves
+
+- storybook - for design system
+- compodoc - for documentaion
+- todo container component can be detached from change detection - and manual Change detection run only on todos list update
+- store actions can be dispatched outside zone via utility function in facade service
+- global meta reducer can be added to sync state with localStorage/Indexed DB for local-first development
+- sync state in localStorage/indexedDB with actual DB every 50 actions or polling
+  after 20mins or with web sockets
+- app can be converted to standalone app for more controlled lazy loading (on component level) - not needed at this stage
+- builder can be swithced to esbuild after upgrade to ng 16 and jest for testing
+- integration tests for ui-facade-service interactions, facade-service-store interactions can be added

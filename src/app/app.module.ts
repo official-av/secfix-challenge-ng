@@ -5,7 +5,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { CustomStoreModule } from "./modules/store/store.module";
+import { CustomStoreModule } from "./modules/store/custom-store.module";
 
 @NgModule({
   declarations: [AppComponent],
