@@ -12,6 +12,8 @@ import {
   TODO_FEATURE_KEY,
   todoReducer,
 } from "./modules/store/todo/todo.reducer";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { environment } from "src/environments/environment";
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,6 +26,10 @@ import {
     EffectsModule.forRoot(),
     StoreModule.forFeature(TODO_FEATURE_KEY, todoReducer),
     EffectsModule.forFeature([TodoEffects]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
