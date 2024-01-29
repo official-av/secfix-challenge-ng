@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormControl, Validators } from "@angular/forms";
 import { MatDialog } from "@angular/material/dialog";
 import { Store, select } from "@ngrx/store";
-import { Observable } from "rxjs";
+import { Observable, map } from "rxjs";
 import { TodoStatus } from "../models/enums/todo-status.enum";
 import { Todo } from "../models/interfaces/todo.interface";
 import {
@@ -25,7 +25,13 @@ export class TodoComponent implements OnInit {
   newTodo = new FormControl("", [Validators.required]);
 
   allTodos$: Observable<Todo[]> = this.store.pipe(select(getAllTodos));
-// TODO: add inProgressTodos, completedTodos
+  // TODO: add inProgressTodos, completedTodos
+  inProgressTodos$ = this.allTodos$.pipe(
+    map((todos) => todos.filter((t) => t.status === TodoStatus.InProgress))
+  );
+  completedTodos$ = this.allTodos$.pipe(
+    map((todos) => todos.filter((t) => t.status === TodoStatus.Complete))
+  );
   constructor(private store: Store, public dialog: MatDialog) {}
 
   ngOnInit(): void {
