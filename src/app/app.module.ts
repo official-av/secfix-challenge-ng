@@ -1,31 +1,31 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import { TodoEffects } from './modules/store/todo/todo.effects';
-import { reducer, TODO_FEATURE_KEY } from './modules/store/todo/todo.reducer';
-
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { EffectsModule } from "@ngrx/effects";
+import { StoreModule } from "@ngrx/store";
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { TodoEffects } from "./modules/store/todo/todo.effects";
+import {
+  TODO_FEATURE_KEY,
+  todoReducer,
+} from "./modules/store/todo/todo.reducer";
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    StoreModule.forRoot(reducer),
+    StoreModule.forRoot(todoReducer),
     EffectsModule.forRoot(),
-    StoreModule.forFeature(TODO_FEATURE_KEY, reducer),
+    StoreModule.forFeature(TODO_FEATURE_KEY, todoReducer),
     EffectsModule.forFeature([TodoEffects]),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

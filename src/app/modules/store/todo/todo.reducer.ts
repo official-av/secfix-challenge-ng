@@ -1,39 +1,28 @@
-import { Action, createReducer, on } from '@ngrx/store';
-import * as actions from './todo.actions';
+import { Action, createReducer, on } from "@ngrx/store";
+import * as actions from "./todo.actions";
+import { TodoState } from "../../models/interfaces/todo-state.interface";
 
-export const TODO_FEATURE_KEY = 'todo-store';
-
-export enum TodoStatus {
-  Complete = 'COMPLETE',
-  InProgress = 'IN_PROGRESS',
-}
-
-export interface Todo {
-  id: number;
-  name?: string;
-  status: TodoStatus;
-}
-
-export interface TodoState {
-    todoList: Todo[];
-}
+export const TODO_FEATURE_KEY = "todo-store";
 
 export const initialState: TodoState = {
-  todoList: []
-}
+  todoList: [],
+};
 
-const todoReducer = createReducer(
-    initialState,
-    on(actions.getTodosSuccess, (state, { todoList }) => ({
-      ...state,
-      todoList,
-    })),
-    on(actions.changeTodoName, (state, { todo }) => ({
-      ...state,
-      todoList: state.todoList.map(el => (el.id === todo.id) ? {...el, name: todo.name} : el)
-    })),
+const reducer = createReducer(
+  initialState,
+  on(actions.getTodosSuccess, (state, { todoList }) => ({
+    ...state,
+    todoList,
+  })),
+  // TODO: add remove, add todo, complete todo
+  on(actions.changeTodoName, (state, { todo }) => ({
+    ...state,
+    todoList: state.todoList.map((el) =>
+      el.id === todo.id ? { ...el, name: todo.name } : el
+    ),
+  }))
 );
 
-export function reducer(state: TodoState | undefined, action: Action) {
-    return todoReducer(state, action);
+export function todoReducer(state: TodoState | undefined, action: Action) {
+  return reducer(state, action);
 }

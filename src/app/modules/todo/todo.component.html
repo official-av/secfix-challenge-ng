@@ -1,4 +1,5 @@
 <div class="container">
+  <!-- TODO: form presentation component -->
   <div class="todo-list-form">
     <mat-form-field>
       <mat-label>Todo List Item</mat-label>
@@ -7,8 +8,11 @@
     <button mat-raised-button color="primary" [disabled]="newTodo.invalid" (click)="addNewTodo()">Add Todo</button>
   </div>
 
+  <!-- TODO: list presentation component -->
   <mat-tab-group>
     <mat-tab label="All">
+      <!-- TODO: separate todo-item presentation component -->
+
       <div class="todo-item" *ngFor="let todo of allTodos$ | async">
         <span>{{ todo.name }}</span>
 
@@ -25,6 +29,8 @@
       <p class="todo-item" *ngIf="(allTodos$ | async)?.length === 0">No todos</p>
     </mat-tab>
     <mat-tab label="In Progress">
+      <!-- TODO: separate todo-item presentation component -->
+
       <div class="todo-item" *ngFor="let todo of allTodos$ | async">
         <span>{{ todo.name }}</span>
 
@@ -42,6 +48,7 @@
     </mat-tab>
     <mat-tab label="Completed">
       <div class="todo-item" *ngFor="let todo of allTodos$ | async">
+        <!-- TODO: separate todo-item presentation component -->
         <span class="line-through">{{ todo.name }}</span>
 
         <div class="todo-actions">

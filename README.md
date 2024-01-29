@@ -2,7 +2,7 @@
 
 Build a ToDo List App where you can add, edit and remove list items. You should be able to change the state of the items in the list e.g. set it from `IN_PROGRESS` to `COMPLETE`. Also you need to be able to change the name of it or remove the item entirely.
 
-List items should be persisted in state (please use `ngrx` for this). 
+List items should be persisted in state (please use `ngrx` for this).
 
 ## Demo
 
@@ -33,8 +33,7 @@ A `ListItem` looks like below:
 
 ### Bonus Objectives
 
--  Please the feature that Todo's are prioritized by their priority level. For this you need to add a new property to the `ListItem` called `priority` which can be `LOW`, `MEDIUM` or `HIGH`. The list's in the view should be sorted by priority.
-
+- Please the feature that Todo's are prioritized by their priority level. For this you need to add a new property to the `ListItem` called `priority` which can be `LOW`, `MEDIUM` or `HIGH`. The list's in the view should be sorted by priority.
 
 ## Evaluation Criteria
 
@@ -48,6 +47,7 @@ Please use the following libraries. Some are already installed:
 - UI Library of your choice
 
 ## Resources
+
 - You can use a UI library like Material UI [Link](https://v14.material.angular.io/guide/getting-started)
 
 ## Evaluation Criteria
@@ -55,3 +55,20 @@ Please use the following libraries. Some are already installed:
 - Completeness of deliverables
 - The way how you built the components
 - How production ready the solution is
+
+## Approach
+
+- cleanup + code walkthrough
+- add facade for interacting with store
+- use facade in ui (for triggering store)
+- add filter + listing
+- add actions
+- Split todo into container+presentation components
+- make reusable components
+- add components
+- change name
+- add/fix unit tests
+- add optimisations
+- bonus task
+
+## Decisions - Reasons
