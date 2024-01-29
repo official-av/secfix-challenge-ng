@@ -11,57 +11,40 @@
   <!-- TODO: list presentation component -->
   <mat-tab-group>
     <mat-tab label="All">
-      <!-- TODO: separate todo-item presentation component -->
+      <ng-container *ngFor="let todo of allTodos$|async">
+        <ng-container *ngTemplateOutlet="todoItem; context:{todo}"></ng-container>
+      </ng-container>
 
-      <div class="todo-item" *ngFor="let todo of allTodos$ | async">
-        <span>{{ todo.name }}</span>
-
-        <div class="todo-actions">
-          <button mat-mini-fab color="primary" aria-label="Complete" (click)="changeTodoStatus(todo)">
-            <mat-icon>done</mat-icon>
-          </button>
-
-          <button mat-mini-fab color="warn" aria-label="Delete" (click)="removeTodo(todo)">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </div>
-      </div>
       <p class="todo-item" *ngIf="(allTodos$ | async)?.length === 0">No todos</p>
     </mat-tab>
     <mat-tab label="In Progress">
-      <!-- TODO: separate todo-item presentation component -->
-
-      <div class="todo-item" *ngFor="let todo of inProgressTodos$|async">
-        <span>{{ todo.name }}</span>
-
-        <div class="todo-actions">
-          <button mat-mini-fab color="primary" aria-label="Complete" (click)="changeTodoStatus(todo)">
-            <mat-icon>done</mat-icon>
-          </button>
-
-          <button mat-mini-fab color="warn" aria-label="Delete" (click)="removeTodo(todo)">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </div>
-      </div>
+      <ng-container *ngFor="let todo of inProgressTodos$|async">
+        <ng-container *ngTemplateOutlet="todoItem; context:{todo}"></ng-container>
+      </ng-container>
       <p class="todo-item" *ngIf="(inProgressTodos$|async)?.length === 0">No todos in progress</p>
     </mat-tab>
     <mat-tab label="Completed">
-      <div class="todo-item" *ngFor="let todo of completedTodos$ | async">
-        <!-- TODO: separate todo-item presentation component -->
-        <span class="line-through">{{ todo.name }}</span>
-
-        <div class="todo-actions">
-          <button mat-mini-fab color="primary" aria-label="Complete" (click)="changeTodoStatus(todo)">
-            <mat-icon>done</mat-icon>
-          </button>
-
-          <button mat-mini-fab color="warn" aria-label="Delete" (click)="removeTodo(todo)">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </div>
-      </div>
+      <ng-container *ngFor="let todo of completedTodos$|async">
+        <ng-container *ngTemplateOutlet="todoItem; context:{todo}"></ng-container>
+      </ng-container>
       <p class="todo-item" *ngIf="( completedTodos$|async)?.length === 0">No completed todos</p>
     </mat-tab>
   </mat-tab-group>
 </div>
+
+<!-- TODO: separate todo-item presentation component -->
+<ng-template #todoItem let-todo="todo">
+  <div class="todo-item">
+    <span [class.line-through]="todo.status===statusEnum.Complete">{{ todo.name }}</span>
+
+    <div class="todo-actions">
+      <button mat-mini-fab color="primary" aria-label="Complete" (click)="changeTodoStatus(todo)">
+        <mat-icon>done</mat-icon>
+      </button>
+
+      <button mat-mini-fab color="warn" aria-label="Delete" (click)="removeTodo(todo)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+</ng-template>
