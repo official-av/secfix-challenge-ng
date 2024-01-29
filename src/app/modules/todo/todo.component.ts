@@ -32,7 +32,7 @@ export class TodoComponent implements OnInit {
     map((todos) => todos.filter((t) => t.status === TodoStatus.Complete))
   );
   constructor(private store: Store, public dialog: MatDialog) {}
-
+  // TODO: consume facade and decouple store
   ngOnInit(): void {
     this.store.dispatch(getTodos());
   }
