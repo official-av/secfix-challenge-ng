@@ -67,7 +67,7 @@ Please use the following libraries. Some are already installed:
 - make reusable components - DONE
 - add components - DONE
 - change name - DONE
-- add/fix unit tests
+- add/fix unit tests - DONE
 - add optimisations
 - bonus task
 

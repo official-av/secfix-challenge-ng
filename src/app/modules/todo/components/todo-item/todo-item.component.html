@@ -6,7 +6,8 @@
             (click)="todoEdited.emit(todo)">
             <mat-icon>edit</mat-icon>
         </button>
-        <button *ngIf="todo?.status===statusEnum.InProgress" mat-mini-fab color="primary" aria-label="Complete" (click)="todoCompleted.emit(todo)">
+        <button class="complete-action" *ngIf="todo?.status===statusEnum.InProgress" mat-mini-fab color="primary" aria-label="Complete"
+            (click)="todoCompleted.emit(todo)">
             <mat-icon>done</mat-icon>
         </button>
 
