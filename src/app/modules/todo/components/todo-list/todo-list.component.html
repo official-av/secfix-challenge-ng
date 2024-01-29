@@ -1,0 +1,43 @@
+<div class="todo-list">
+    <mat-tab-group>
+        <mat-tab label="All">
+            <ng-container *ngIf="todos?.length;else noTodos">
+                <ng-container *ngFor="let todo of todos">
+                    <ng-container *ngTemplateOutlet="todoItem;context: {todo}">
+                    </ng-container>
+                </ng-container>
+            </ng-container>
+            <ng-template #noTodos>
+                <p class="empty-todos">No todos</p>
+            </ng-template>
+        </mat-tab>
+        <mat-tab label="In Progress">
+            <ng-container *ngIf="inProgressTodos?.length;else noInProgressTodos">
+                <ng-container *ngFor="let todo of inProgressTodos">
+                    <ng-container *ngTemplateOutlet="todoItem;context: {todo}">
+                    </ng-container>
+                </ng-container>
+            </ng-container>
+            <ng-template #noInProgressTodos>
+                <p class="empty-todos">No todos in progress</p>
+            </ng-template>
+        </mat-tab>
+        <mat-tab label="Completed">
+            <ng-container *ngIf="completedTodos?.length;else noCompletedTodos">
+                <ng-container *ngFor="let todo of completedTodos">
+                    <ng-container *ngTemplateOutlet="todoItem;context: {todo}">
+                    </ng-container>
+                </ng-container>
+            </ng-container>
+            <ng-template #noCompletedTodos>
+                <p class="empty-todos">No completed todos</p>
+            </ng-template>
+        </mat-tab>
+    </mat-tab-group>
+</div>
+
+<ng-template #todoItem let-todo="todo">
+    <app-todo-item [todo]="todo" (todoEdited)="todoActionPerformed.emit({action:'edit',todo:$event})"
+        (todoRemoved)="todoActionPerformed.emit({action:'remove',todo:$event})"
+        (todoCompleted)="todoActionPerformed.emit({action:'complete',todo:$event})"></app-todo-item>
+</ng-template>

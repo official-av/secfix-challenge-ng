@@ -2,32 +2,6 @@
   <!-- form presentation component -->
   <app-todo-form [mode]="isEditMode" (todoNameChanged)="addOrUpdateTodo($event)" #todoForm></app-todo-form>
 
-  <!-- TODO: list presentation component -->
-  <mat-tab-group>
-    <mat-tab label="All">
-      <ng-container *ngFor="let todo of allTodos$|async">
-        <ng-container *ngTemplateOutlet="todoItem; context:{todo}"></ng-container>
-      </ng-container>
-
-      <p class="todo-item" *ngIf="(allTodos$ | async)?.length === 0">No todos</p>
-    </mat-tab>
-    <mat-tab label="In Progress">
-      <ng-container *ngFor="let todo of inProgressTodos$|async">
-        <ng-container *ngTemplateOutlet="todoItem; context:{todo}"></ng-container>
-      </ng-container>
-      <p class="todo-item" *ngIf="(inProgressTodos$|async)?.length === 0">No todos in progress</p>
-    </mat-tab>
-    <mat-tab label="Completed">
-      <ng-container *ngFor="let todo of completedTodos$|async">
-        <ng-container *ngTemplateOutlet="todoItem; context:{todo}"></ng-container>
-      </ng-container>
-      <p class="todo-item" *ngIf="( completedTodos$|async)?.length === 0">No completed todos</p>
-    </mat-tab>
-  </mat-tab-group>
+  <!-- list presentation component -->
+  <app-todo-list [todos]="allTodos$|async" (todoActionPerformed)="todoActionHandler($event)"></app-todo-list>
 </div>
-
-<!-- separate todo-item presentation component -->
-<ng-template #todoItem let-todo="todo">
-  <app-todo-item [todo]="todo" (todoEdited)="startTodoEdit($event)" (todoCompleted)="changeTodoStatus($event)"
-    (todoRemoved)="removeTodo($event)"></app-todo-item>
-</ng-template>

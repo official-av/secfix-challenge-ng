@@ -8,19 +8,19 @@ import { MatListModule } from "@angular/material/list";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { EditTodoDialogComponent } from "./components/edit-todo-dialog/edit-todo-dialog.component";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatDialogModule } from "@angular/material/dialog";
 import { TodoItemComponent } from "./components/todo-item/todo-item.component";
 import { TodoFormComponent } from "./components/todo-form/todo-form.component";
+import { TodoListComponent } from "./components/todo-list/todo-list.component";
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
     TodoComponent,
-    EditTodoDialogComponent,
     TodoItemComponent,
     TodoFormComponent,
+    TodoListComponent,
   ],
   imports: [
     CommonModule,

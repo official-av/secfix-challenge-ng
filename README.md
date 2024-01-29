@@ -63,10 +63,10 @@ Please use the following libraries. Some are already installed:
 - add actions + reducers - DONE
 - add facade for interacting with store - DONE
 - use facade in ui (for triggering store) - DONE
-- Split todo into container+presentation components
-- make reusable components
-- add components
-- change name
+- Split todo into container+presentation components - DONE
+- make reusable components - DONE
+- add components - DONE
+- change name - DONE
 - add/fix unit tests
 - add optimisations
 - bonus task
