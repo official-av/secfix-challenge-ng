@@ -58,11 +58,11 @@ Please use the following libraries. Some are already installed:
 
 ## Approach
 
-- cleanup + code walkthrough
+- cleanup + code walkthrough - DONE
+- add filter + listing - DONE
+- add actions + reducers
 - add facade for interacting with store
 - use facade in ui (for triggering store)
-- add filter + listing
-- add actions
 - Split todo into container+presentation components
 - make reusable components
 - add components
