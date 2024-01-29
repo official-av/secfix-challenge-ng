@@ -73,3 +73,4 @@ Please use the following libraries. Some are already installed:
 
 ## Decisions - Reasons
 - added devtools - for logs and visualising/monitoring state changes, debugging 
+- used facade - SRP, easy to test maintain and scale
