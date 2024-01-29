@@ -61,8 +61,8 @@ Please use the following libraries. Some are already installed:
 - cleanup + code walkthrough - DONE
 - add filter + listing - DONE
 - add actions + reducers - DONE
-- add facade for interacting with store
-- use facade in ui (for triggering store)
+- add facade for interacting with store - DONE
+- use facade in ui (for triggering store) - DONE
 - Split todo into container+presentation components
 - make reusable components
 - add components
