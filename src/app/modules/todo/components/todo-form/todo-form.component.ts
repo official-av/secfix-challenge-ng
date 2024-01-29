@@ -1,8 +1,9 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   EventEmitter,
   Input,
-  Output
+  Output,
 } from "@angular/core";
 import { FormControl, Validators } from "@angular/forms";
 
@@ -10,6 +11,7 @@ import { FormControl, Validators } from "@angular/forms";
   selector: "app-todo-form",
   templateUrl: "./todo-form.component.html",
   styleUrls: ["./todo-form.component.css"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoFormComponent {
   @Input() mode: "update" | "add" = "add";
