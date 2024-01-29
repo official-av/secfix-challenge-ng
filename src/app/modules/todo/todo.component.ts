@@ -1,4 +1,9 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  ViewChild,
+} from "@angular/core";
 import { Todo } from "../models/interfaces/todo.interface";
 import { TodoFormComponent } from "./components/todo-form/todo-form.component";
 import { TodoStateService } from "./services/todo-state.service";
@@ -7,6 +12,7 @@ import { TodoStateService } from "./services/todo-state.service";
   selector: "app-todo",
   templateUrl: "./todo.component.html",
   styleUrls: ["./todo.component.css"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoComponent implements OnInit {
   @ViewChild("todoForm") todoForm!: TodoFormComponent;
